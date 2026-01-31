@@ -1,0 +1,34 @@
+### Robot Framework Specific ###
+output.xml
+log.html
+report.html
+
+Results/*
+!Results/.gitkeep
+output/
+
+selenium-screenshot-*.png
+browser-screenshots/
+
+### Python Specific ###
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+.venv/
+env/
+
+### IDE/Editor Specific ###
+.vscode/
+.idea/
+.DS_Store (Mac)
+Thumbs.db (Windows)
+
+### CI/CD ###
+.artifacts/
+
+### database ###
+*.db
+sut/database.db
