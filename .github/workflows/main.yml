@@ -1,0 +1,46 @@
+name: IoT Integration CI
+
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.10'
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r sut/requirements.txt
+                pip install -r requirements.txt
+            - name: Start SUT (Mock Server)
+              run: |
+                python sut/app.py & 
+                sleep 5
+            - name: Run Robot Framework Tests
+              run: |
+                robot -d results tests/suites/
+            - name: Upload Test Results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                name: robot-test-results
+                path: results/
+            - name: Deploy Report to GitHub Pages
+              if: always() 
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./results 
+                keep_files: false
+                user_name: 'github-actions[bot]'
+                user_email: 'github-actions[bot]@users.noreply.github.com' 
