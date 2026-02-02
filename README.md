@@ -52,7 +52,8 @@ iot-device-integration-tests/
 │   └── IoTValidationLib.py       # Custom Python library
 ├── results/                      
 ├── requirements.txt              
-└── README.md                    
+└── README.md 
+```                   
 ---
 
 ## 🛠️ Technology Stack
