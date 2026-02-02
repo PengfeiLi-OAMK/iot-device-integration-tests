@@ -2,6 +2,7 @@
 
 [![CI Pipeline](https://github.com/PengfeiLi-OAMK/iot-device-integration-tests/actions/workflows/main.yml/badge.svg)](https://github.com/PengfeiLi-OAMK/iot-device-integration-tests/actions)
 [![Test Report](https://img.shields.io/badge/Test_Report-View_Live-success?style=for-the-badge&logo=robot-framework)](https://pengfeili-oamk.github.io/iot-device-integration-tests/report)
+[👉 Click here to view the Live Robot Framework Report](https://pengfeili-oamk.github.io/iot-device-integration-tests/report)
 
 > **Note:** The live report is automatically deployed via GitHub Actions after every push.
 ## 📌 Project Overview
