@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.10.19 on linux)" generated="2026-02-02T14:53:20.522036" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.10.19 on linux)" generated="2026-02-02T14:56:20.903571" rpa="false" schemaversion="5">
 <suite id="s1" name="Suites" source="/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/tests/suites">
 <suite id="s1-s1" name="Iot Integration Tests" source="/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/tests/suites/iot_integration_tests.robot">
 <kw name="Initialize Test Suite" owner="common" type="SETUP">
 <kw name="Initialize API Session" owner="api_keywords">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-02-02T14:53:20.670443" level="INFO">Creating Session using : alias=iot_session, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-02-02T14:56:21.022818" level="INFO">Creating Session using : alias=iot_session, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>iot_session</arg>
 <arg>${BASE_URL}</arg>
 <arg>disable_warnings=1</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-02-02T14:53:20.670184" elapsed="0.000526"/>
+<status status="PASS" start="2026-02-02T14:56:21.022517" elapsed="0.000603"/>
 </kw>
 <doc>Initializes a session.Must be called before API requests.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.669590" elapsed="0.001206"/>
+<status status="PASS" start="2026-02-02T14:56:21.021924" elapsed="0.001288"/>
 </kw>
 <kw name="Connect To IoT Database" owner="db_keywords">
 <kw name="Join Path" owner="OperatingSystem">
-<msg time="2026-02-02T14:53:20.671323" level="INFO">${db_path} = /home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db</msg>
+<msg time="2026-02-02T14:56:21.023780" level="INFO">${db_path} = /home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db</msg>
 <var>${db_path}</var>
 <arg>/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/tests/resources</arg>
 <arg>..</arg>
@@ -25,187 +25,187 @@
 <arg>sut</arg>
 <arg>database.db</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.671130" elapsed="0.000219"/>
+<status status="PASS" start="2026-02-02T14:56:21.023541" elapsed="0.000268"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.671731" level="INFO">Connecting to DB at:/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db</msg>
+<msg time="2026-02-02T14:56:21.024208" level="INFO">Connecting to DB at:/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db</msg>
 <arg>Connecting to DB at:${db_path}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.671460" elapsed="0.000314"/>
+<status status="PASS" start="2026-02-02T14:56:21.023931" elapsed="0.000318"/>
 </kw>
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-02-02T14:53:20.672090" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
-<msg time="2026-02-02T14:53:20.672133" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-02-02T14:53:20.673384" level="INFO">Connect to DB using : sqlite3.connect(database='/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db')</msg>
+<msg time="2026-02-02T14:56:21.024517" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
+<msg time="2026-02-02T14:56:21.024563" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-02-02T14:56:21.025935" level="INFO">Connect to DB using : sqlite3.connect(database='/home/runner/work/iot-device-integration-tests/iot-device-integration-tests/sut/database.db')</msg>
 <arg>sqlite3</arg>
 <arg>${db_path}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.671912" elapsed="0.001636"/>
+<status status="PASS" start="2026-02-02T14:56:21.024351" elapsed="0.001766"/>
 </kw>
 <doc>Establishes a connection to the SQLite database file</doc>
-<status status="PASS" start="2026-02-02T14:53:20.670959" elapsed="0.002699"/>
+<status status="PASS" start="2026-02-02T14:56:21.023365" elapsed="0.002871"/>
 </kw>
 <doc>Suite Setup: Initialize API session and connect to the database.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.669328" elapsed="0.004375"/>
+<status status="PASS" start="2026-02-02T14:56:21.021639" elapsed="0.004643"/>
 </kw>
 <test id="s1-s1-t1" name="TestCase 01: Verify Successful Device Configuration" line="17">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.674681" level="INFO">${target_temp} = 25.5</msg>
+<msg time="2026-02-02T14:56:21.027359" level="INFO">${target_temp} = 25.5</msg>
 <var>${target_temp}</var>
 <arg>25.5</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.674401" elapsed="0.000305"/>
+<status status="PASS" start="2026-02-02T14:56:21.027054" elapsed="0.000332"/>
 </kw>
 <kw name="Validate Temperature Range" owner="IoTValidationLib">
 <arg>${target_temp}</arg>
 <doc>Simulates industrial sensor logic to verify if the input temperature 
 falls within the safe operating range [-40, 85].
 Raises a ValueError if the temperature is out of bounds, causing the test to fail.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.674818" elapsed="0.000167"/>
+<status status="PASS" start="2026-02-02T14:56:21.027509" elapsed="0.000177"/>
 </kw>
 <kw name="Send Configuration To Device" owner="api_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.676115" level="INFO">${body} = {'target_temperature': '25.5', 'firmware_version': 'v1.0'}</msg>
+<msg time="2026-02-02T14:56:21.028831" level="INFO">${body} = {'target_temperature': '25.5', 'firmware_version': 'v1.0'}</msg>
 <var>${body}</var>
 <arg>target_temperature=${target_temp}</arg>
 <arg>firmware_version=${firmware}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.675453" elapsed="0.000692"/>
+<status status="PASS" start="2026-02-02T14:56:21.028172" elapsed="0.000689"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-02-02T14:53:20.681471" level="INFO">POST Request : url=http://127.0.0.1:5000/api/config 
+<msg time="2026-02-02T14:56:21.035555" level="INFO">POST Request : url=http://127.0.0.1:5000/api/config 
  path_url=/api/config 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
  body=b'{"target_temperature": "25.5", "firmware_version": "v1.0"}' 
  </msg>
-<msg time="2026-02-02T14:53:20.681574" level="INFO">POST Response : url=http://127.0.0.1:5000/api/config 
+<msg time="2026-02-02T14:56:21.035692" level="INFO">POST Response : url=http://127.0.0.1:5000/api/config 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:53:20 GMT', 'Content-Type': 'application/json', 'Content-Length': '114', 'Connection': 'close'} 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:56:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '114', 'Connection': 'close'} 
  body={
   "configured_temp": 25.5,
   "message": "Configuration accepted",
-  "timestamp": "2026-02-02T14:53:20.680328"
+  "timestamp": "2026-02-02T14:56:21.034257"
 }
  
  </msg>
-<msg time="2026-02-02T14:53:20.681683" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-02-02T14:56:21.035814" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>iot_session</arg>
 <arg>/api/config</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.676264" elapsed="0.005442"/>
+<status status="PASS" start="2026-02-02T14:56:21.028989" elapsed="0.006851"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-02-02T14:53:20.681770" elapsed="0.000047"/>
+<status status="PASS" start="2026-02-02T14:56:21.035913" elapsed="0.000055"/>
 </return>
-<msg time="2026-02-02T14:53:20.682029" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-02-02T14:56:21.036163" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${target_temp}</arg>
 <doc>Send POST /api/config request to configure the IOT device.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.675151" elapsed="0.006903"/>
+<status status="PASS" start="2026-02-02T14:56:21.027869" elapsed="0.008317"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.682719" level="INFO">Argument types are:
+<msg time="2026-02-02T14:56:21.036941" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.682173" elapsed="0.000604"/>
+<status status="PASS" start="2026-02-02T14:56:21.036314" elapsed="0.000689"/>
 </kw>
 <kw name="Get Device Status" owner="api_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2026-02-02T14:53:20.685218" level="INFO">GET Request : url=http://127.0.0.1:5000/api/status 
+<msg time="2026-02-02T14:56:21.039791" level="INFO">GET Request : url=http://127.0.0.1:5000/api/status 
  path_url=/api/status 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2026-02-02T14:53:20.685299" level="INFO">GET Response : url=http://127.0.0.1:5000/api/status 
+<msg time="2026-02-02T14:56:21.039877" level="INFO">GET Response : url=http://127.0.0.1:5000/api/status 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:53:20 GMT', 'Content-Type': 'application/json', 'Content-Length': '129', 'Connection': 'close'} 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:56:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '129', 'Connection': 'close'} 
  body={
   "firmware_version": "v1.0",
-  "last_update": "2026-02-02 14:53:20",
+  "last_update": "2026-02-02 14:56:21",
   "status": "CONFIGURED",
   "target_temperature": 25.5
 }
  
  </msg>
-<msg time="2026-02-02T14:53:20.685402" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-02-02T14:56:21.039987" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>iot_session</arg>
 <arg>/api/status</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.683191" elapsed="0.002234"/>
+<status status="PASS" start="2026-02-02T14:56:21.037425" elapsed="0.002587"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-02-02T14:53:20.685479" elapsed="0.000035"/>
+<status status="PASS" start="2026-02-02T14:56:21.040075" elapsed="0.000039"/>
 </return>
-<msg time="2026-02-02T14:53:20.685638" level="INFO">${status_response} = &lt;Response [200]&gt;</msg>
+<msg time="2026-02-02T14:56:21.040256" level="INFO">${status_response} = &lt;Response [200]&gt;</msg>
 <var>${status_response}</var>
 <doc>Send GET /api/status request to retrieve the device status.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.682962" elapsed="0.002698"/>
+<status status="PASS" start="2026-02-02T14:56:21.037189" elapsed="0.003091"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.686432" level="INFO">${api_json} = {'firmware_version': 'v1.0', 'last_update': '2026-02-02 14:53:20', 'status': 'CONFIGURED', 'target_temperature': 25.5}</msg>
+<msg time="2026-02-02T14:56:21.041075" level="INFO">${api_json} = {'firmware_version': 'v1.0', 'last_update': '2026-02-02 14:56:21', 'status': 'CONFIGURED', 'target_temperature': 25.5}</msg>
 <var>${api_json}</var>
 <arg>${status_response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.685806" elapsed="0.000654"/>
+<status status="PASS" start="2026-02-02T14:56:21.040441" elapsed="0.000665"/>
 </kw>
 <kw name="Get Latest Device Record" owner="db_keywords">
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-02-02T14:53:20.687063" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1&lt;/code&gt;</msg>
-<msg time="2026-02-02T14:53:20.687205" level="INFO">Commit the transaction</msg>
-<msg time="2026-02-02T14:53:20.687243" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;target_temp&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;25.5&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CONFIGURED&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-02-02T14:53:20.687334" level="INFO">${query_results} = [(25.5, 'CONFIGURED')]</msg>
+<msg time="2026-02-02T14:56:21.041731" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1&lt;/code&gt;</msg>
+<msg time="2026-02-02T14:56:21.041895" level="INFO">Commit the transaction</msg>
+<msg time="2026-02-02T14:56:21.041936" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;target_temp&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;25.5&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CONFIGURED&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-02-02T14:56:21.042030" level="INFO">${query_results} = [(25.5, 'CONFIGURED')]</msg>
 <var>${query_results}</var>
 <arg>SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.686952" elapsed="0.000403"/>
+<status status="PASS" start="2026-02-02T14:56:21.041613" elapsed="0.000439"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.687883" level="INFO">Length is 1.</msg>
-<msg time="2026-02-02T14:53:20.687961" level="INFO">${count} = 1</msg>
+<msg time="2026-02-02T14:56:21.042608" level="INFO">Length is 1.</msg>
+<msg time="2026-02-02T14:56:21.042693" level="INFO">${count} = 1</msg>
 <var>${count}</var>
 <arg>${query_results}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.687470" elapsed="0.000512"/>
+<status status="PASS" start="2026-02-02T14:56:21.042171" elapsed="0.000545"/>
 </kw>
 <if>
 <branch type="IF" condition="${count} == 0">
 <return>
 <value>${None}</value>
-<status status="NOT RUN" start="2026-02-02T14:53:20.688181" elapsed="0.000014"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.042924" elapsed="0.000014"/>
 </return>
-<status status="NOT RUN" start="2026-02-02T14:53:20.688065" elapsed="0.000157"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.042803" elapsed="0.000162"/>
 </branch>
-<status status="PASS" start="2026-02-02T14:53:20.688042" elapsed="0.000203"/>
+<status status="PASS" start="2026-02-02T14:56:21.042779" elapsed="0.000207"/>
 </if>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.688660" level="INFO">${record} = (25.5, 'CONFIGURED')</msg>
+<msg time="2026-02-02T14:56:21.043404" level="INFO">${record} = (25.5, 'CONFIGURED')</msg>
 <var>${record}</var>
 <arg>${query_results}[0]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.688351" elapsed="0.000334"/>
+<status status="PASS" start="2026-02-02T14:56:21.043093" elapsed="0.000336"/>
 </kw>
 <return>
 <value>${record}</value>
-<status status="PASS" start="2026-02-02T14:53:20.688726" elapsed="0.000028"/>
+<status status="PASS" start="2026-02-02T14:56:21.043473" elapsed="0.000028"/>
 </return>
-<msg time="2026-02-02T14:53:20.688887" level="INFO">${db_record} = (25.5, 'CONFIGURED')</msg>
+<msg time="2026-02-02T14:56:21.043638" level="INFO">${db_record} = (25.5, 'CONFIGURED')</msg>
 <var>${db_record}</var>
 <doc>Retrieves the most recent record from the devices table.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.686694" elapsed="0.002216"/>
+<status status="PASS" start="2026-02-02T14:56:21.041354" elapsed="0.002307"/>
 </kw>
 <kw name="Verify Data Consistency" owner="IoTValidationLib">
 <arg>${api_json}</arg>
@@ -214,193 +214,193 @@ usually they are tuples or tuple-like objects.</doc>
 the real-time API response and the persisted database record.
 :param api_response_json: JSON dictionary returned by the API (e.g., {'target_temperature': 25.5, ...})
 :param db_record: Tuple returned by the Database query (e.g., (25.5, 'CONFIGURED'))</doc>
-<status status="PASS" start="2026-02-02T14:53:20.689012" elapsed="0.000152"/>
+<status status="PASS" start="2026-02-02T14:56:21.043770" elapsed="0.000158"/>
 </kw>
 <doc>Happy Path: Verifies that valid temperature configuration is correctly
 processed by the API, persisted in the DB, and passes business rule validation.</doc>
 <tag>critical</tag>
 <tag>integration</tag>
-<status status="PASS" start="2026-02-02T14:53:20.673794" elapsed="0.015478"/>
+<status status="PASS" start="2026-02-02T14:56:21.026383" elapsed="0.017662"/>
 </test>
 <test id="s1-s1-t2" name="TestCase 02: Verify Reject Invalid Temperature" line="35">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.690258" level="INFO">${invalid_temp} = -50</msg>
+<msg time="2026-02-02T14:56:21.045233" level="INFO">${invalid_temp} = -50</msg>
 <var>${invalid_temp}</var>
 <arg>-50</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.690002" elapsed="0.000280"/>
+<status status="PASS" start="2026-02-02T14:56:21.044940" elapsed="0.000320"/>
 </kw>
 <kw name="Send Configuration To Device" owner="api_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.691152" level="INFO">${body} = {'target_temperature': '-50', 'firmware_version': 'v1.0'}</msg>
+<msg time="2026-02-02T14:56:21.046204" level="INFO">${body} = {'target_temperature': '-50', 'firmware_version': 'v1.0'}</msg>
 <var>${body}</var>
 <arg>target_temperature=${target_temp}</arg>
 <arg>firmware_version=${firmware}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.690736" elapsed="0.000442"/>
+<status status="PASS" start="2026-02-02T14:56:21.045799" elapsed="0.000431"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-02-02T14:53:20.693149" level="INFO">POST Request : url=http://127.0.0.1:5000/api/config 
+<msg time="2026-02-02T14:56:21.048628" level="INFO">POST Request : url=http://127.0.0.1:5000/api/config 
  path_url=/api/config 
  headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
  body=b'{"target_temperature": "-50", "firmware_version": "v1.0"}' 
  </msg>
-<msg time="2026-02-02T14:53:20.693221" level="INFO">POST Response : url=http://127.0.0.1:5000/api/config 
+<msg time="2026-02-02T14:56:21.048688" level="INFO">POST Response : url=http://127.0.0.1:5000/api/config 
  status=400, reason=BAD REQUEST 
- headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:53:20 GMT', 'Content-Type': 'application/json', 'Content-Length': '54', 'Connection': 'close'} 
+ headers={'Server': 'Werkzeug/3.1.5 Python/3.10.19', 'Date': 'Mon, 02 Feb 2026 14:56:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '54', 'Connection': 'close'} 
  body={
   "error": "Temperature out of range (-40 to 85)"
 }
  
  </msg>
-<msg time="2026-02-02T14:53:20.693340" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2026-02-02T14:56:21.048787" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <var>${response}</var>
 <arg>iot_session</arg>
 <arg>/api/config</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.691295" elapsed="0.002075"/>
+<status status="PASS" start="2026-02-02T14:56:21.046345" elapsed="0.002465"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-02-02T14:53:20.693448" elapsed="0.000039"/>
+<status status="PASS" start="2026-02-02T14:56:21.048873" elapsed="0.000035"/>
 </return>
-<msg time="2026-02-02T14:53:20.693660" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2026-02-02T14:56:21.049036" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <var>${response}</var>
 <arg>${invalid_temp}</arg>
 <doc>Send POST /api/config request to configure the IOT device.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.690440" elapsed="0.003249"/>
+<status status="PASS" start="2026-02-02T14:56:21.045436" elapsed="0.003624"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.694666" level="INFO">Argument types are:
+<msg time="2026-02-02T14:56:21.049902" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>400</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.693832" elapsed="0.000901"/>
+<status status="PASS" start="2026-02-02T14:56:21.049182" elapsed="0.000780"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.695566" level="INFO">${json} = {'error': 'Temperature out of range (-40 to 85)'}</msg>
+<msg time="2026-02-02T14:56:21.050669" level="INFO">${json} = {'error': 'Temperature out of range (-40 to 85)'}</msg>
 <var>${json}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.694911" elapsed="0.000709"/>
+<status status="PASS" start="2026-02-02T14:56:21.050089" elapsed="0.000642"/>
 </kw>
 <kw name="Dictionary Should Contain Key" owner="Collections">
 <arg>${json}</arg>
 <arg>error</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.695738" elapsed="0.000188"/>
+<status status="PASS" start="2026-02-02T14:56:21.050857" elapsed="0.000169"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${json['error']}</arg>
 <arg>out of range</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.696031" elapsed="0.000613"/>
+<status status="PASS" start="2026-02-02T14:56:21.051132" elapsed="0.000686"/>
 </kw>
 <kw name="Get Latest Device Record" owner="db_keywords">
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-02-02T14:53:20.697185" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1&lt;/code&gt;</msg>
-<msg time="2026-02-02T14:53:20.697236" level="INFO">Commit the transaction</msg>
-<msg time="2026-02-02T14:53:20.697268" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;target_temp&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;25.5&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CONFIGURED&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-02-02T14:53:20.697351" level="INFO">${query_results} = [(25.5, 'CONFIGURED')]</msg>
+<msg time="2026-02-02T14:56:21.052411" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1&lt;/code&gt;</msg>
+<msg time="2026-02-02T14:56:21.052474" level="INFO">Commit the transaction</msg>
+<msg time="2026-02-02T14:56:21.052508" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;target_temp&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;25.5&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CONFIGURED&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-02-02T14:56:21.052620" level="INFO">${query_results} = [(25.5, 'CONFIGURED')]</msg>
 <var>${query_results}</var>
 <arg>SELECT target_temp, status FROM device_state ORDER BY id DESC LIMIT 1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.697088" elapsed="0.000284"/>
+<status status="PASS" start="2026-02-02T14:56:21.052300" elapsed="0.000343"/>
 </kw>
 <kw name="Get Length" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.697738" level="INFO">Length is 1.</msg>
-<msg time="2026-02-02T14:53:20.697809" level="INFO">${count} = 1</msg>
+<msg time="2026-02-02T14:56:21.053036" level="INFO">Length is 1.</msg>
+<msg time="2026-02-02T14:56:21.053106" level="INFO">${count} = 1</msg>
 <var>${count}</var>
 <arg>${query_results}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.697478" elapsed="0.000351"/>
+<status status="PASS" start="2026-02-02T14:56:21.052757" elapsed="0.000369"/>
 </kw>
 <if>
 <branch type="IF" condition="${count} == 0">
 <return>
 <value>${None}</value>
-<status status="NOT RUN" start="2026-02-02T14:53:20.698030" elapsed="0.000012"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.053308" elapsed="0.000014"/>
 </return>
-<status status="NOT RUN" start="2026-02-02T14:53:20.697927" elapsed="0.000141"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.053202" elapsed="0.000145"/>
 </branch>
-<status status="PASS" start="2026-02-02T14:53:20.697907" elapsed="0.000180"/>
+<status status="PASS" start="2026-02-02T14:56:21.053181" elapsed="0.000185"/>
 </if>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.698474" level="INFO">${record} = (25.5, 'CONFIGURED')</msg>
+<msg time="2026-02-02T14:56:21.053768" level="INFO">${record} = (25.5, 'CONFIGURED')</msg>
 <var>${record}</var>
 <arg>${query_results}[0]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.698182" elapsed="0.000315"/>
+<status status="PASS" start="2026-02-02T14:56:21.053462" elapsed="0.000329"/>
 </kw>
 <return>
 <value>${record}</value>
-<status status="PASS" start="2026-02-02T14:53:20.698535" elapsed="0.000027"/>
+<status status="PASS" start="2026-02-02T14:56:21.053833" elapsed="0.000028"/>
 </return>
-<msg time="2026-02-02T14:53:20.698671" level="INFO">${db_record} = (25.5, 'CONFIGURED')</msg>
+<msg time="2026-02-02T14:56:21.053976" level="INFO">${db_record} = (25.5, 'CONFIGURED')</msg>
 <var>${db_record}</var>
 <doc>Retrieves the most recent record from the devices table.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.696872" elapsed="0.001821"/>
+<status status="PASS" start="2026-02-02T14:56:21.052062" elapsed="0.001936"/>
 </kw>
 <if>
 <branch type="IF" condition="${db_record}">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.699197" level="INFO">${latest_saved_temp} = 25.5</msg>
+<msg time="2026-02-02T14:56:21.054520" level="INFO">${latest_saved_temp} = 25.5</msg>
 <var>${latest_saved_temp}</var>
 <arg>${db_record}[0]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.698898" elapsed="0.000322"/>
+<status status="PASS" start="2026-02-02T14:56:21.054200" elapsed="0.000348"/>
 </kw>
 <kw name="Should Not Be Equal As Numbers" owner="BuiltIn">
-<msg time="2026-02-02T14:53:20.699561" level="INFO">Argument types are:
+<msg time="2026-02-02T14:56:21.054939" level="INFO">Argument types are:
 &lt;class 'float'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${latest_saved_temp}</arg>
 <arg>${invalid_temp}</arg>
 <doc>Fails if objects are equal after converting them to real numbers.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.699319" elapsed="0.000295"/>
+<status status="PASS" start="2026-02-02T14:56:21.054670" elapsed="0.000325"/>
 </kw>
-<status status="PASS" start="2026-02-02T14:53:20.698754" elapsed="0.000898"/>
+<status status="PASS" start="2026-02-02T14:56:21.054063" elapsed="0.000965"/>
 </branch>
 <branch type="ELSE">
 <kw name="Log" owner="BuiltIn">
 <arg>Database is empty. Invalid data was successfully rejected and not persisted.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2026-02-02T14:53:20.699802" elapsed="0.000022"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.055153" elapsed="0.000017"/>
 </kw>
-<status status="NOT RUN" start="2026-02-02T14:53:20.699684" elapsed="0.000177"/>
+<status status="NOT RUN" start="2026-02-02T14:56:21.055051" elapsed="0.000145"/>
 </branch>
-<status status="PASS" start="2026-02-02T14:53:20.698734" elapsed="0.001146"/>
+<status status="PASS" start="2026-02-02T14:56:21.054045" elapsed="0.001168"/>
 </if>
 <doc>Negative Path: Verifies that out-of-range temperature (-50) is rejected
 by the API and is NOT persisted in the database (Safety Mechanism).</doc>
 <tag>integration</tag>
 <tag>negative</tag>
-<status status="PASS" start="2026-02-02T14:53:20.689499" elapsed="0.010482"/>
+<status status="PASS" start="2026-02-02T14:56:21.044323" elapsed="0.010999"/>
 </test>
 <kw name="Cleanup Test Suite" owner="common" type="TEARDOWN">
 <kw name="Disconnect From IoT Database" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.700901" elapsed="0.000127"/>
+<status status="PASS" start="2026-02-02T14:56:21.056329" elapsed="0.000157"/>
 </kw>
 <doc>Closes the database connection.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.700740" elapsed="0.000343"/>
+<status status="PASS" start="2026-02-02T14:56:21.056171" elapsed="0.000374"/>
 </kw>
 <doc>Suite Teardown: Disconnect from the database.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.700542" elapsed="0.000583"/>
+<status status="PASS" start="2026-02-02T14:56:21.055960" elapsed="0.000655"/>
 </kw>
 <doc>IoT Device Integration Test Suite
 Verifies API configuration, database persistence, and business rule consistency
 using a "Triangle Verification" strategy.</doc>
-<status status="PASS" start="2026-02-02T14:53:20.546831" elapsed="0.154324"/>
+<status status="PASS" start="2026-02-02T14:56:20.929118" elapsed="0.127533"/>
 </suite>
-<status status="PASS" start="2026-02-02T14:53:20.522808" elapsed="0.179133"/>
+<status status="PASS" start="2026-02-02T14:56:20.904401" elapsed="0.153065"/>
 </suite>
 <statistics>
 <total>
