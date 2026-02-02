@@ -7,7 +7,7 @@ Library         Collections
 ${BASE_URL}      http://127.0.0.1:5000
 
 *** Keywords ***
-Initialize IOT API Session
+Initialize API Session
     [Documentation]   Initializes a session.Must be called before API requests.
     Create Session   iot_session   ${BASE_URL}   disable_warnings=1
 

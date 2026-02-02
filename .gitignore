@@ -3,8 +3,8 @@ output.xml
 log.html
 report.html
 
-Results/*
-!Results/.gitkeep
+results/*
+!results/.gitkeep
 output/
 
 selenium-screenshot-*.png

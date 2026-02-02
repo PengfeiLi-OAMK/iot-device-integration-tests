@@ -38,12 +38,16 @@ def set_config():
     data = request.get_json()
     
     # Extract parameters
-    target_temp = data.get('target_temperature')
+    raw_temp = data.get('target_temperature')
     firmware = data.get('firmware_version', 'v1.0')
 
     # Rule validation (Provides logic for automated test cases)
-    if target_temp is None:
+    if raw_temp is None:
         return jsonify({"error": "Missing target_temperature"}), 400
+    try:
+        target_temp = float(raw_temp)
+    except ValueError:
+        return jsonify({"error": "target_temperature must be a number"}), 400
     
     if not is_valid_temp(target_temp):
         return jsonify({"error": "Temperature out of range (-40 to 85)"}), 400

@@ -5,8 +5,8 @@ Library          OperatingSystem
 *** Keywords ***
 Connect To IoT Database
     [Documentation]   Establishes a connection to the SQLite database file
-    ${db_path}=   Join Path   ${CURDIR}   ..  ..  sub  database.db
-    Log    Connecting to DB at:  ${db_path}
+    ${db_path}=   Join Path   ${CURDIR}   ..  ..  sut  database.db
+    Log    Connecting to DB at:${db_path}
     
     Connect To Database  sqlite3   ${db_path}
 
