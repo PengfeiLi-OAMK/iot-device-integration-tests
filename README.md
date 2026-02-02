@@ -1,6 +1,7 @@
 # IoT Device Integration Test Suite
 
 [![Test Report](https://img.shields.io/badge/Test_Report-Live_Report-success?style=for-the-badge&logo=robot-framework)](https://pengfeili-oamk.github.io/iot-device-integration-tests/report)
+
 [👉 Click here to view the Live Robot Framework Report](https://pengfeili-oamk.github.io/iot-device-integration-tests/report)
 
 > **Note:** The live report is automatically deployed via GitHub Actions after every push.
