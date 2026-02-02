@@ -31,11 +31,34 @@ Instead of simple API assertions, this suite implements a **Triangle Verificatio
 * Automatically spins up the Mock Server (SUT) in a background process, executes the full test suite, and uploads HTML test reports as artifacts.
 
 ---
+## 📂 Project Structure
+
+```text
+iot-device-integration-tests/
+├── .github/
+│   └── workflows/
+│       └── main.yml       
+├── sut/                          # System Under Test
+│   ├── app.py                   
+│   ├── database.db               
+│   └── requirements.txt          
+├── tests/
+│   ├── resources/                # Keywords
+│   │   ├── api_keywords.resource 
+│   │   └── db_keywords.resource  
+│   └── suites/
+│       └── iot_integration_tests.robot  # Test suites
+├── libraries/
+│   └── IoTValidationLib.py       # Custom Python library
+├── results/                      
+├── requirements.txt              
+└── README.md                    
+---
 
 ## 🛠️ Technology Stack
 * **Testing Framework**: Robot Framework
 * **Libraries**: RequestsLibrary, DatabaseLibrary (SQLite3)
-* **Programming**: Python 3.x (Flask for SUT, Custom Validation Library)
+* **Programming**: Python 3.x (Custom Validation Library)
 * **CI/CD**: GitHub Actions
 
 ---

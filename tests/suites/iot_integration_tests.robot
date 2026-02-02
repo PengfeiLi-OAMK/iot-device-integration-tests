@@ -19,7 +19,7 @@ TestCase 01: Verify Successful Device Configuration
     ...                processed by the API, persisted in the DB, and passes business rule validation.
     [Tags]             integration    critical
     ${target_temp}=    Set Variable    25.5
-    # Guard Clause: Validate temperature against bussiness rules.Don't even talk to the API if data violates physics.
+    # Precondition: Ensure test input is within valid industrial range
     Validate Temperature Range    ${target_temp} 
     ${response}=    Send Configuration To Device    ${target_temp}
     # Check HTTP status code is 200 OK
