@@ -36,7 +36,11 @@ TestCase 02: Verify Reject Invalid Temperature
     [Documentation]    Negative Path: Verifies that out-of-range temperature (-50) is rejected 
     ...                by the API and is NOT persisted in the database (Safety Mechanism).
     [Tags]             integration    negative
+    # Snapshoting the original state before sending invalid request
+    ${original_record}=    Get Latest Device Record
+    # Send invalid configuration to the device
     ${invalid_temp}=    Set Variable    -50
+    Send Configuration To Device    ${invalid_temp}
     ${response}=       Send Configuration To Device    ${invalid_temp}
     # Check HTTP status code is 400 Bad Request
     Should Be Equal As Integers    ${response.status_code}    400
@@ -44,12 +48,8 @@ TestCase 02: Verify Reject Invalid Temperature
     ${json}=    Set Variable       ${response.json()}
     Dictionary Should Contain Key  ${json}    error
     Should Contain                 ${json['error']}    out of range
-    # Ensure the invalid value was NOT persisted
-    ${db_record}=    Get Latest Device Record
-    # # Check if database has records (Normal case) or is empty (Initial state)
-    IF  ${db_record}
-        ${latest_saved_temp}=    Set Variable    ${db_record}[0]
-        Should Not Be Equal As Numbers    ${latest_saved_temp}    ${invalid_temp}
-    ELSE
-        Log    Database is empty. Invalid data was successfully rejected and not persisted.
-    END
+    # VERIFICATION: Get current state
+    ${current_record}=     Get Latest Device Record
+    # Compare if "original state" and "current state" are exactly the same
+    Should Be Equal    ${current_record}    ${original_record}
+
