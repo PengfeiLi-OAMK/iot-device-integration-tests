@@ -21,4 +21,14 @@ Send Configuration To Device
 Get Device Status
     [Documentation]   Send GET /api/status request to retrieve the device status.
     ${response}=   GET On Session    iot_session   /api/status   expected_status=any
+    Should Be Equal As Integers    ${response.status_code}    200
+    
+    #try to parse JSON, if it fails, log the actual response body for debugging
+    TRY
+        ${json_check}=    Set Variable    ${response.json()}
+    EXCEPT    AS    ${error_msg}
+        Log    Critical Failure: Non-JSON response received!\nOriginal Body:\n${response.text}    level=WARN
+        Log    Python Exception Trace: ${error_msg}    level=DEBUG
+        Fail    Device status response is not valid JSON (Status: ${response.status_code}). Response Body: ${response.text}
+    END
     RETURN    ${response}
